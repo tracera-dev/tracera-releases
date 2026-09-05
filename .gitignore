@@ -1,0 +1,5 @@
+.env
+*.pem
+*.p12
+*.pfx
+.DS_Store

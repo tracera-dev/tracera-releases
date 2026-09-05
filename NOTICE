@@ -1,0 +1,83 @@
+Tracera — third-party notices
+=============================
+
+Tracera application software (API, web UI, and desktop client) is proprietary.
+Copyright (c) 2026 Tracera. All rights reserved.
+Use of Tracera requires a separate written agreement with Tracera.
+
+This distribution may include or depend on open-source components. Those
+components remain subject to their own licenses. This NOTICE summarizes major
+components used by a typical Tracera on-prem deployment. It is not an exhaustive
+inventory of every transitive dependency. Full license texts for bundled
+libraries ship with the corresponding upstream projects; contact Tracera support
+if you need a dependency-level report for a specific release.
+
+-------------------------------------------------------------------------------
+Stack images (Docker Compose)
+-------------------------------------------------------------------------------
+
+PostgreSQL
+  Image: postgres (Alpine variants as pinned in docker-compose.yml)
+  License: PostgreSQL License
+  https://www.postgresql.org/about/licence/
+
+SeaweedFS
+  Image: chrislusf/seaweedfs (as pinned in docker-compose.yml)
+  License: Apache License 2.0
+  https://github.com/seaweedfs/seaweedfs
+
+nginx
+  Image: nginx (Alpine variants as pinned in docker-compose.yml)
+  License: BSD-2-Clause (nginx)
+  https://nginx.org/LICENSE
+
+-------------------------------------------------------------------------------
+API (Rust)
+-------------------------------------------------------------------------------
+
+Tracera API is built with open-source Rust crates, including (non-exhaustive):
+
+  axum, tokio, tower-http          — MIT
+  tokio-postgres, deadpool-postgres — MIT / Apache-2.0 (upstream dual where applicable)
+  serde, serde_json                — MIT OR Apache-2.0
+  uuid, chrono, time               — MIT OR Apache-2.0 / Apache-2.0 (see crate)
+  aws-sdk-s3                       — Apache-2.0
+  lettre                           — MIT
+  utoipa, utoipa-scalar            — MIT OR Apache-2.0
+  tikv-jemallocator                — MIT OR Apache-2.0
+  image, argon2, aes-gcm, totp-rs  — MIT OR Apache-2.0 / Apache-2.0 (see crate)
+
+Bundled API docs UI uses Scalar API Reference (MIT).
+
+-------------------------------------------------------------------------------
+Web UI
+-------------------------------------------------------------------------------
+
+The Tracera web UI is built with open-source JavaScript/TypeScript packages,
+including (non-exhaustive):
+
+  svelte, vite                     — MIT
+  @tanstack/svelte-virtual         — MIT
+  prosemirror-*                    — MIT
+  lowlight, highlight.js (via)     — BSD-3-Clause / MIT (see package)
+  @tauri-apps/api (desktop shell)  — MIT OR Apache-2.0
+
+-------------------------------------------------------------------------------
+Desktop client (Tauri)
+-------------------------------------------------------------------------------
+
+The desktop client uses Tauri and related crates, including (non-exhaustive):
+
+  tauri, tauri-build               — MIT OR Apache-2.0
+  wry, tao, tauri-runtime-wry      — Apache-2.0 OR MIT / Apache-2.0 (see crate)
+
+Platform WebViews (WebKit / WebView2 / WebKitGTK) are provided by the operating
+system or platform SDKs under their respective terms.
+
+-------------------------------------------------------------------------------
+Disclaimer
+-------------------------------------------------------------------------------
+
+THE OPEN-SOURCE COMPONENTS ARE PROVIDED BY THEIR AUTHORS "AS IS", WITHOUT
+WARRANTY OF ANY KIND. NOTHING IN THIS NOTICE GRANTS A LICENSE TO TRACERA
+APPLICATION SOFTWARE BEYOND A WRITTEN AGREEMENT WITH TRACERA.
