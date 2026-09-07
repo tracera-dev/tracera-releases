@@ -3,3 +3,7 @@
 *.p12
 *.pfx
 .DS_Store
+
+# Deployment license — never commit issued tokens or issuer private key
+**/tracera.license
+**/signing.key
