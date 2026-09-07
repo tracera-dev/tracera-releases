@@ -10,7 +10,7 @@ Artifacts and release notes: [GitHub Releases](https://github.com/tracera-dev/tr
 
 ## 1. GHCR login (private images)
 
-Tracera support provides a **fine-grained GitHub PAT** with **read:packages** (one token per customer).
+Tracera support provides a **GitHub PAT** (classic) with **`read:packages`** (one token per customer).
 
 **bash / zsh / Git Bash / WSL:**
 
