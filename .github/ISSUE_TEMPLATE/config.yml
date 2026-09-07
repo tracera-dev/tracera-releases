@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Product docs
+    url: https://tracera.dev/docs/getting-started
+    about: Install overview and product how-to on tracera.dev
+  - name: Contact support
+    url: mailto:contact@tracera.dev
+    about: Questions that are not a bug or feature request
