@@ -38,6 +38,7 @@ curl -fsSLO https://github.com/tracera-dev/tracera-releases/releases/download/vX
 curl -fsSLO https://github.com/tracera-dev/tracera-releases/releases/download/vX.Y.Z/NOTICE
 cp env.example .env
 # edit .env — passwords, TRACERA_PUBLIC_APP_URL, TRACERA_SECRETS_ENCRYPTION_KEY, SMTP, …
+# Save the signed license as ./tracera.license (or set TRACERA_LICENSE_HOST_PATH if it lives elsewhere).
 # Compose loads `.env` into the API container (mail and other settings). Keep
 # TRACERA_DATABASE_URL / TRACERA_S3_ENDPOINT out of .env — compose sets those.
 docker compose --env-file .env up -d
@@ -53,6 +54,7 @@ Invoke-WebRequest -Uri "$base/env.example" -OutFile env.example
 Invoke-WebRequest -Uri "$base/NOTICE" -OutFile NOTICE
 Copy-Item env.example .env
 # edit .env — passwords, TRACERA_PUBLIC_APP_URL, TRACERA_SECRETS_ENCRYPTION_KEY, SMTP, …
+# Save the signed license as ./tracera.license (or set TRACERA_LICENSE_HOST_PATH if it lives elsewhere).
 # Compose loads `.env` into the API container (mail and other settings). Keep
 # TRACERA_DATABASE_URL / TRACERA_S3_ENDPOINT out of .env — compose sets those.
 docker compose --env-file .env up -d
@@ -62,7 +64,7 @@ Images are pinned by **digest** in `docker-compose.yml`. Semver tags are listed 
 
 First boot: API runs migrations, bootstrap users, and S3 bucket setup automatically.
 
-Object storage uses an internal SeaweedFS S3 gateway (not published on the host). Set `TRACERA_S3_ACCESS_KEY`, `TRACERA_S3_SECRET_KEY`, and `TRACERA_S3_BUCKET` in `.env` (see `env.example`). There is no object-storage admin console in the stack.
+Object storage uses an internal SeaweedFS S3 gateway (not published on the host). Set `TRACERA_S3_SECRET_KEY` in `.env`; access key and bucket default to `tracera` (see `env.example`). There is no object-storage admin console in the stack.
 
 ### Email (invite / password reset)
 
@@ -78,7 +80,7 @@ When a user enables 2FA, Tracera shows **one-time backup codes**. Keep them some
 
 If backup codes are also unavailable, an **admin** can open **Admin → Users**, choose the user, and use **Disable 2FA**. The user then signs in with password only and can enable 2FA again.
 
-Health:
+### Health
 
 **bash / zsh / Git Bash / WSL:**
 
@@ -132,7 +134,17 @@ From the web UI you can also use **Open in Desktop** (icon rail or sign-in / inv
 
 Release candidates are marked **Pre-release**. Use their compose asset for testing; do not assume the default-branch compose tracks an RC.
 
-## License
+## Installation license
+
+Tracera support sends a **signed license file** with your GHCR token (trial or paid).
+
+1. Save it as `tracera.license` next to `docker-compose.yml`. If the file lives elsewhere, set `TRACERA_LICENSE_HOST_PATH` in `.env` (see `env.example`).
+2. Compose mounts the file into the API at `TRACERA_LICENSE_PATH` (default `/license/tracera.license`).
+3. Open **Admin → License** to confirm status. To renew, replace the same file — click **Refresh** for an immediate update (or wait about a minute / restart the API container).
+
+Without a valid license the UI stays usable for **reading**; creating or changing data (including Autotest API writes) is blocked until a current license is installed.
+
+## Proprietary notice
 
 Tracera application software is proprietary. Copyright (c) 2026 Tracera. All rights reserved. Use requires a separate written agreement with Tracera. Third-party open-source components remain under their own licenses — see [NOTICE](NOTICE).
 
