@@ -8,9 +8,9 @@ Artifacts and release notes: [GitHub Releases](https://github.com/tracera-dev/tr
 - ≥ **8 GB RAM** all-in-one (medium profile)
 - Outbound HTTPS to `ghcr.io` for image pull
 
-## 1. GHCR login (private images)
+## 1. Image registry login
 
-Tracera support provides a **GitHub PAT** (classic) with **`read:packages`** (one token per customer).
+Tracera support sends a **pull token** (one per customer). Use it to log in:
 
 **bash / zsh / Git Bash / WSL:**
 
@@ -136,7 +136,7 @@ Release candidates are marked **Pre-release**. Use their compose asset for testi
 
 ## Installation license
 
-Tracera support sends a **signed license file** with your GHCR token (trial or paid).
+Tracera support sends a **signed license file** with your pull token (trial or paid).
 
 1. Save it as `tracera.license` next to `docker-compose.yml`. If the file lives elsewhere, set `TRACERA_LICENSE_HOST_PATH` in `.env` (see `env.example`).
 2. Compose mounts the file into the API at `TRACERA_LICENSE_PATH` (default `/license/tracera.license`).
@@ -150,4 +150,4 @@ Tracera application software is proprietary. Copyright (c) 2026 Tracera. All rig
 
 ## Support
 
-Treat the GHCR token as a secret; rotate it after a leak or when access should end. Do not commit `.env` or your GHCR token to git.
+Treat the pull token as a secret; rotate it after a leak or when access should end. Do not commit `.env` or your pull token to git.
