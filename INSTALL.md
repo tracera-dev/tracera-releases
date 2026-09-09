@@ -37,10 +37,7 @@ curl -fsSLO https://github.com/tracera-dev/tracera-releases/releases/download/vX
 curl -fsSLO https://github.com/tracera-dev/tracera-releases/releases/download/vX.Y.Z/env.example
 curl -fsSLO https://github.com/tracera-dev/tracera-releases/releases/download/vX.Y.Z/NOTICE
 cp env.example .env
-# edit .env — passwords, TRACERA_PUBLIC_APP_URL, TRACERA_SECRETS_ENCRYPTION_KEY, SMTP, …
-# Save the signed license as ./tracera.license (or set TRACERA_LICENSE_HOST_PATH if it lives elsewhere).
-# Compose loads `.env` into the API container (mail and other settings). Keep
-# TRACERA_DATABASE_URL / TRACERA_S3_ENDPOINT out of .env — compose sets those.
+# Fill Required in .env. License: ./tracera.license
 docker compose --env-file .env up -d
 ```
 
@@ -53,10 +50,7 @@ Invoke-WebRequest -Uri "$base/docker-compose.yml" -OutFile docker-compose.yml
 Invoke-WebRequest -Uri "$base/env.example" -OutFile env.example
 Invoke-WebRequest -Uri "$base/NOTICE" -OutFile NOTICE
 Copy-Item env.example .env
-# edit .env — passwords, TRACERA_PUBLIC_APP_URL, TRACERA_SECRETS_ENCRYPTION_KEY, SMTP, …
-# Save the signed license as ./tracera.license (or set TRACERA_LICENSE_HOST_PATH if it lives elsewhere).
-# Compose loads `.env` into the API container (mail and other settings). Keep
-# TRACERA_DATABASE_URL / TRACERA_S3_ENDPOINT out of .env — compose sets those.
+# Fill Required in .env. License: ./tracera.license
 docker compose --env-file .env up -d
 ```
 
@@ -138,9 +132,8 @@ Release candidates are marked **Pre-release**. Use their compose asset for testi
 
 Tracera support sends a **signed license file** with your pull token (trial or paid).
 
-1. Save it as `tracera.license` next to `docker-compose.yml`. If the file lives elsewhere, set `TRACERA_LICENSE_HOST_PATH` in `.env` (see `env.example`).
-2. Compose mounts the file into the API at `TRACERA_LICENSE_PATH` (default `/license/tracera.license`).
-3. Open **Admin → License** to confirm status. To renew, replace the same file — click **Refresh** for an immediate update (or wait about a minute / restart the API container).
+1. Save it as `tracera.license` next to `docker-compose.yml` (default `TRACERA_LICENSE_HOST_PATH=./tracera.license`). Compose mounts that file into the API. If the file lives elsewhere, set `TRACERA_LICENSE_HOST_PATH` in `.env` (see `env.example`).
+2. Open **Admin → License** to confirm status. To renew, replace the same file — click **Refresh** for an immediate update (or wait about a minute / restart the API container).
 
 Without a valid license the UI stays usable for **reading**; creating or changing data (including Autotest API writes) is blocked until a current license is installed.
 
