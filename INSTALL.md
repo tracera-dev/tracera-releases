@@ -62,7 +62,7 @@ Object storage uses an internal SeaweedFS S3 gateway (not published on the host)
 
 ### Email (invite / password reset)
 
-Production requires **SMTP** (`TRACERA_MAIL_TRANSPORT=smtp` in `.env`). Set `TRACERA_MAIL_SMTP_HOST`, `TRACERA_MAIL_FROM_ADDRESS`, and your SMTP credentials for the mail relay. Invite and password-reset links in emails are built from `TRACERA_PUBLIC_APP_URL` — set it to the same public HTTPS origin users open in the browser (for example `https://tracera.example.com:8088`).
+Production requires **SMTP** (`TRACERA_MAIL_TRANSPORT=smtp` in `.env`). Set `TRACERA_MAIL_SMTP_HOST`, `TRACERA_MAIL_FROM_ADDRESS`, and your SMTP credentials for the mail relay. Invite and password-reset links in emails are built from `TRACERA_PUBLIC_APP_URL` — set it to the same public HTTPS origin users open in the browser (for example `https://tracera.example.com:8088`) and set `TRACERA_COOKIE_SECURE=true`.
 
 Do **not** use `TRACERA_MAIL_TRANSPORT=log` in production — the API would write invite and password-reset links (including one-time tokens) to its logs. Use `log` only for local troubleshooting.
 
