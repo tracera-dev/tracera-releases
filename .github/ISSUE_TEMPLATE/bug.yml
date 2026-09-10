@@ -1,0 +1,100 @@
+name: Bug report
+description: Something is broken or behaves incorrectly
+title: "[Bug]: "
+labels: ["type:bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Fill in the fields below so we can reproduce and sort the issue.
+        Deep install steps: [INSTALL.md](https://github.com/tracera-dev/tracera-releases/blob/main/INSTALL.md).
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Where does this happen?
+      description: Pick the closest match. Adapters ship after the core product (Playwright, then pytest, then JUnit).
+      options:
+        - Tracera (core / UI / API)
+        - Desktop
+        - Install / docs / releases
+        - Adapter: Playwright
+        - Adapter: pytest
+        - Adapter: JUnit
+        - Adapter (unsure which)
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: tracera_version
+    attributes:
+      label: Tracera version
+      description: Release tag you deployed (for example v1.2.3), or the version shown in Admin → License / About.
+      placeholder: vX.Y.Z
+    validations:
+      required: true
+
+  - type: input
+    id: adapter_version
+    attributes:
+      label: Adapter version (if applicable)
+      description: Required when you selected an adapter. Package version from your lockfile or `npm` / `pip` / Maven coordinates.
+      placeholder: e.g. 0.3.1
+    validations:
+      required: false
+
+  - type: dropdown
+    id: deploy
+    attributes:
+      label: How do you run Tracera?
+      options:
+        - Docker Compose (on-prem)
+        - Desktop client only
+        - Other / not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What went wrong?
+      description: Short summary of the problem.
+      placeholder: When I …, Tracera …
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps help us most.
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include error messages or screenshots if you have them.
+    validations:
+      required: true
+
+  - type: textarea
+    id: extras
+    attributes:
+      label: Extra context (optional)
+      description: OS, browser, SMTP provider, anything else that might matter. Do not paste secrets, tokens, or full `.env` files.
+    validations:
+      required: false

@@ -18,3 +18,5 @@ Public distribution channel for Tracera on-prem **artifacts only** — no applic
 Download `docker-compose.yml` from the GitHub Release you are deploying. After a **final** release, that same file is also on the default branch. For a **pre-release (RC)**, use that Pre-release’s compose asset — do not use default-branch compose for an RC.
 
 Desktop installers are **unsigned** (no Apple / Windows code signing). See INSTALL.md for Gatekeeper / SmartScreen notes.
+
+**Bugs and improvements:** open an issue with the [Bug](https://github.com/tracera-dev/tracera-releases/issues/new?template=bug.yml) or [Feature](https://github.com/tracera-dev/tracera-releases/issues/new?template=feature.yml) form (include your Tracera version; for adapters, include the adapter version too).

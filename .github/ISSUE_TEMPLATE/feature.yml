@@ -1,0 +1,68 @@
+name: Feature or improvement
+description: Suggest a change or new capability
+title: "[Feature]: "
+labels: ["type:enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe what you want and where it fits. We use this to prioritize product and adapter work.
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Where should this live?
+      description: Pick the closest match. Adapters ship after the core product (Playwright, then pytest, then JUnit).
+      options:
+        - Tracera (core / UI / API)
+        - Desktop
+        - Install / docs / releases
+        - Adapter: Playwright
+        - Adapter: pytest
+        - Adapter: JUnit
+        - Adapter (unsure which)
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: tracera_version
+    attributes:
+      label: Tracera version you use (optional)
+      description: Helps if the idea depends on current behavior.
+      placeholder: vX.Y.Z
+    validations:
+      required: false
+
+  - type: input
+    id: adapter_version
+    attributes:
+      label: Adapter version (optional)
+      description: Fill in if this is about an adapter you already use.
+      placeholder: e.g. 0.3.1
+    validations:
+      required: false
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you solving?
+      description: What is hard or missing today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like instead?
+      description: Sketch the outcome you want. Exact UI or API design is optional.
+    validations:
+      required: true
+
+  - type: textarea
+    id: extras
+    attributes:
+      label: Extra context (optional)
+      description: Workarounds you use today, links, screenshots. Do not paste secrets or tokens.
+    validations:
+      required: false
