@@ -12,14 +12,14 @@ body:
     id: component
     attributes:
       label: Where should this live?
-      description: Pick the closest match. Adapters ship after the core product (Playwright, then pytest, then JUnit).
+      description: Pick the closest match.
       options:
         - Tracera (core / UI / API)
         - Desktop
         - Install / docs / releases
-        - Adapter: Playwright
-        - Adapter: pytest
-        - Adapter: JUnit
+        - "Adapter: Playwright"
+        - "Adapter: Pytest"
+        - "Adapter: JUnit"
         - Adapter (unsure which)
         - Not sure
     validations:
