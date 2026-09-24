@@ -21,10 +21,10 @@ PostgreSQL
   License: PostgreSQL License
   https://www.postgresql.org/about/licence/
 
-SeaweedFS
-  Image: chrislusf/seaweedfs (as pinned in docker-compose.yml)
+RustFS
+  Image: rustfs/rustfs (as pinned in docker-compose.yml)
   License: Apache License 2.0
-  https://github.com/seaweedfs/seaweedfs
+  https://github.com/rustfs/rustfs
 
 nginx
   Image: nginx (Alpine variants as pinned in docker-compose.yml)
