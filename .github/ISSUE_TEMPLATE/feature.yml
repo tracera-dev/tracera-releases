@@ -12,14 +12,35 @@ body:
     id: component
     attributes:
       label: Where should this live?
-      description: Pick the closest match.
+      description: Pick the closest match. Adapter names match docs / Features.
       options:
         - Tracera (core / UI / API)
         - Desktop
         - Install / docs / releases
-        - "Adapter: Playwright"
+        - "Adapter: Playwright JS"
+        - "Adapter: Cypress"
+        - "Adapter: WebdriverIO"
+        - "Adapter: Jest"
+        - "Adapter: Vitest"
         - "Adapter: Pytest"
-        - "Adapter: JUnit"
+        - "Adapter: Playwright Python"
+        - "Adapter: Robot Framework"
+        - "Adapter: Behave"
+        - "Adapter: JUnit 5"
+        - "Adapter: TestNG"
+        - "Adapter: Kotest"
+        - "Adapter: Cucumber JVM"
+        - "Adapter: Android"
+        - "Adapter: NUnit"
+        - "Adapter: xUnit"
+        - "Adapter: Reqnroll"
+        - "Adapter: gotest"
+        - "Adapter: Ginkgo"
+        - "Adapter: Godog"
+        - "Adapter: dart-test"
+        - "Adapter: Flutter"
+        - "Adapter: Swift Testing"
+        - "Adapter: XCUITest"
         - Adapter (unsure which)
         - Not sure
     validations:
