@@ -60,6 +60,8 @@ including (non-exhaustive):
   @tanstack/svelte-virtual         — MIT
   prosemirror-*                    — MIT
   lowlight, highlight.js (via)     — BSD-3-Clause / MIT (see package)
+  @fontsource-variable/inter (Inter) — SIL Open Font License 1.1
+  @fontsource-variable/noto-sans-* (Noto Sans SC / Devanagari / Arabic) — SIL Open Font License 1.1
   @tauri-apps/api (desktop shell)  — MIT OR Apache-2.0
 
 -------------------------------------------------------------------------------

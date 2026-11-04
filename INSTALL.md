@@ -90,6 +90,8 @@ Liveness returns `{ "status": "ok" }`. Ops diagnostics: `GET /health/detail` onl
 
 The UI sets CSP and related security headers — keep them if you add another reverse proxy. `/docs` uses a separate, relaxed CSP; do not replace it with the strict SPA policy at the edge.
 
+If you need more than one API process (load balancer, Kubernetes), see [HA.md](HA.md). The default compose keeps a single API container (`TRACERA_ROLE=all`).
+
 ## 3. Desktop client (optional)
 
 Download installers for your OS from the same GitHub Release. Verify checksums against `SHA256SUMS` from the release:

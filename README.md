@@ -7,6 +7,7 @@ Public distribution channel for Tracera on-prem **artifacts only** — no applic
 | Resource | Location |
 |----------|----------|
 | Install guide | [INSTALL.md](INSTALL.md) |
+| High availability | [HA.md](HA.md) — multi-API / worker split when you outgrow a single API container |
 | Stack compose (digest-pinned) | [GitHub Releases](https://github.com/tracera-dev/tracera-releases/releases) — download `docker-compose.yml` from the release you deploy |
 | Env template | [env.example](env.example) |
 | Third-party notices | [NOTICE](NOTICE) |
