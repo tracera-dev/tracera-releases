@@ -46,8 +46,13 @@ Tracera API is built with open-source Rust crates, including (non-exhaustive):
   utoipa, utoipa-scalar            — MIT OR Apache-2.0
   tikv-jemallocator                — MIT OR Apache-2.0
   image, argon2, aes-gcm, totp-rs  — MIT OR Apache-2.0 / Apache-2.0 (see crate)
+  printpdf                         — MIT
+  zip                              — MIT OR Apache-2.0
 
 Bundled API docs UI uses Scalar API Reference (MIT).
+
+Run-report PDF embeds DejaVu Sans (Bitstream Vera / Arev fonts — Bitstream Vera
+Font License / public domain Arev extensions; see upstream DejaVu fonts project).
 
 -------------------------------------------------------------------------------
 Web UI
